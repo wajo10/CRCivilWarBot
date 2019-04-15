@@ -1,21 +1,17 @@
 from PIL import Image, ImageDraw
+from random import randint
 image = Image.open('cantones3.png')
 class canton:
     conquistado = False
     tamano = 0
     poblacion = 0
     limites = []
+    contiene = []
     nombre = ""
     centro = (0,0)
-    color = (0,0,0,0)
+    color = (randint(0,255),randint(0,255),randint(0,255),255)
 
-    def __init__(self, conquistado, tamano, poblacion, limites, nombre, centro):
-        """Constructor de clase Persona"""
-        self.nombre = nombre
-        self.conquistado = conquistado
-        self.poblacion = poblacion
-        self.limites = limites
-        self.centro = centro
+
 
     def imprimir(self):
         ImageDraw.floodfill(image, self.centro, self.color)
@@ -24,10 +20,25 @@ class canton:
         if self.nombre == 'Puntarenas, Puntarenas':
             ImageDraw.floodfill(image, (170, 252), self.color)
             ImageDraw.floodfill(image, (179, 310), self.color)
-        image.show()
+        if self.nombre =="Golfito, Puntarenas":
+            ImageDraw.floodfill(image, (556, 609), self.color)
+
+
+    def __init__(self, conquistado, tamano, poblacion, limites, nombre, centro):
+        """Constructor de clase Persona"""
+        self.nombre = nombre
+        self.conquistado = conquistado
+        self.poblacion = poblacion
+        self.limites = limites
+        self.centro = centro
+        self.color = (randint(0,255),randint(0,255),randint(0,255),255)
+        self.imprimir()
+        self.limites = []
+        self.contiene = []
 
 
 
+#___________INSTANCIACION DE CADA CANTON_________________________________________
 SJ = canton(False, 44.62, 288054,[],"San José, San José", (400,289))
 Alajuela = canton(False, 388.43, 254886, [], "Alajuela, Alajuela", (376,268))
 Desamparados = canton(False, 118.26, 208411,[], "Desamparados, San José", (414,310))
@@ -63,8 +74,89 @@ Oreamuno = canton(False, 202.31, 45473, [], "Oreamuno, Cartago", (456,270))
 BuenosAires = canton(False, 2384.22, 45244, [], "Buenos Aires, Puntarenas", (603,457))
 Upala = canton(False, 1580.67, 43953, [], "Upala, Alajuela", (161,84))
 Naranjo =canton(False, 126.62, 42713, [], "Naranjo, Alajuela", (340,251))
+Corredores = canton(False,620.60, 41831,[],"Corredores, Putarenas",(663,590))
+Guarco = canton(False, 167.79, 41793, [], "El Guarco, Cartago", (437,330))
+Guacimo = canton(False, 576.48, 41266, [], "Guácimo, Limón",(498,225))
+Barva = canton(False, 53.80, 40660,[],"Barva, Heredia", (399,255))
+SantoDomingo =canton(False, 24.84, 40072, [], "Santo Domingo, Heredia", (409,278))
+Golfito =canton(False, 1753.96, 39150, [], "Golfito, Puntarenas", (630,548))
+CotoBrus = canton(False, 933.91, 38453, [], "Coto Brus, Puntarenas", (657,511))
+Matina = canton(False, 772.64, 37721, [], "Matina, Limòn", (585,256))
+Carrillo = canton(False, 577.54, 37122, [], "Carrillo, Guanacaste", (64,172))
+SantaBarbara = canton(False, 53.21, 36243, [], "Santa Bárbara, Heredia", (391,257))
+Palmares = canton(False, 38.06, 34716, [], "Palmares, Alajuela", (328,266))
+Puriscal = canton(False, 553.00, 33004, [], "Puriscal, San José", (338,332))
+Talamanca = canton(False, 2809.93, 30712, [], "Talamanca, Limón", (608,394))
+Osa = canton(False, 1930.24, 29433, [], "Osa, Puntarenas", (534,511))
+Poas= canton(False, 73.84, 29199, [], "Poás, Alajuela",(369,255))
+Esparza = canton(False, 216.80, 28644, [], "Esparza, Puntarenas",(277,284))
+SanPablo = canton(False, 7.53, 27671, [], "San Pablo, Heredia", (403,275))
+Quepos = canton(False, 543.77, 26861, [], "Quepos, Puntarenas", (402,400))
+Mora = canton(False, 162.04, 26294, [], "Mora, San José", (364,303))
+Canas = canton(False, 682.20, 26201, [], "Cañas, Guanacaste", (186,193))
+Atenas = canton(False, 127.19, 25460, [], "Atenas, Alajuela", (335,280))
+LosChiles = canton(False, 1358.86, 23735, [], " Los Chiles, Alajuela", (274,85))
+Belen= canton(False, 12.15, 21633, [], "Belén, Heredia", (384,278))
+SanIsidro = canton(False, 26.96, 20633, [], "San Isidro, Heredia", (415,267))
+Orotina = canton(False, 141.92, 20341, [], "Orotina, Alajuela", (296,299))
+Acosta = canton(False, 342.24, 20209, [], "Acosta, San José", (370,333))
+Flores = canton(False, 6.96, 20037, [], "Flores, Heredia", (389,273))
+Tilaran = canton(False, 638.39, 19640, [], "Tilarán, Guanacaste",(226,180))
+Bagaces = canton(False, 1273.49, 19536, [], "Bagaces, Guanacaste", (166,169))
+LaCruz = canton(False, 1383.90, 19181, [], "La Cruz, Guanacaste", (78,52))
+Sarchi = canton(False, 120.25, 18085, [], "Sarchí, Alajuela", (359,226))
+Abangares = canton(False, 675.76, 18039, [], "Abangares, Guanacaste", (216,222))
+Garabito = canton(False, 316.31, 17229, [], "Garabito, Puntarenas", (292,324))
+Tarrazu = canton(False, 297.50, 16280, [], "Tarrazú, San José",(418,366))
+Parrita = canton(False, 478.79, 16115, [], "Parrita, Puntarenas", (354,370))
+Guatuso = canton(False, 758.32, 15508, [], "Guatuso, Alajuela", (245,121))
+Jimenez = canton(False, 286.43, 14669, [], "Jiménez, Cartago", (487,313))
+Alvarado = canton(False, 81.06, 14312, [], "Alvarado, Cartago", (467,287))
+MontesOro = canton(False, 244.76, 12950, [], "Montes de Oro, Puntarenas", (264,251))
+Zarcero = canton(False, 155.13, 12205, [], "Zarcero, Alajuela", (328,227))
+LeonCortes = canton(False, 120.80, 12200, [], "León Cortés, San José", (412,341))
+Nandayure = canton(False, 565.59, 11121, [], "Nandayure, Guanacaste", (134,300))
+RioCuarto = canton(False, 254.20, 11074, [], "Río Cuarto, Alajuela", (374,192))
+Hojancha = canton(False, 261.42, 7197, [], "Hojancha, Guanacaste", (112,284))
+Dota = canton(False, 400.22, 6948, [], "Dota, San José", (446,365))
+SanMateo = canton(False,125.90, 6136, [], "San Mateo, Alajuela",(304,283))
+Turrubares = canton(False, 415.29, 5512, [],"Turrubares, San José", (314,315))
+IslaCoco = canton(False, 23.85, 20000, [], "Isla del Coco, Puntarenas", (162,576))
+
+#________________LIMITES DE CADA CANTON_______________________________________________________________________
+SJ.limites = [Belen,Heredia,SantoDomingo,Tibas,Goicochea,MontesDeOca,Curridabat,Desamparados,Alajuelita,Escazu]
+Alajuela.limites = [Sarapiqui,Heredia,Belen,SantaBarbara,SantaAna,Mora,Atenas,Grecia,Poas,Sarchi,RioCuarto]
+Desamparados.limites = [Curridabat,SJ, Alajuelita,Aserri,LeonCortes,Dota,Guarco,Cartago,Union]
+SC.limites=[LosChiles,Guatuso,Tilaran,SR,Zarcero,Sarchi,RioCuarto,Sarapiqui]
+Cartago.limites = [Goicochea,Coronado,Desamparados,Guarco,MontesDeOca,Union,Oreamuno,Paraiso]
+PZ.limites = [Paraiso,Dota,Quepos,Osa,BuenosAires,Talamanca,Turrialba]
+Pococi.limites = [Sarapiqui,Guacimo,Oreamuno,Turrialba]
+Heredia.limites = [Barva,SantaBarbara,SanRafael,SanIsidro,Sarapiqui,Flores,Belen,SantoDomingo, SJ, Union]
+Puntarenas.limites = [Nandayure,Abangares,Esparza,SR,SanMateo]
+Goicochea.limites = [Coronado,Moravia,Tibas,SJ, MontesDeOca,Cartago]
+Union.limites = [MontesDeOca,Curridabat,Cartago,Desamparados]
+Limon.limites = [Talamanca,Matina,Turrialba]
+SR.limites = [SC, Zarcero,SanMateo,Atenas,Palmares,Naranjo,Tilaran,MontesOro,Puntarenas,Esparza]
+Alajuelita.limites = [SJ,Escazu,Acosta,Aserri,Desamparados]
+Turrialba.limites = [Pococi,Guacimo,Siquirres,Matina,Limon,Talamanca,Jimenez,Alvarado,Oreamuno,Paraiso,PZ]
+Grecia.limites = [Poas,Alajuela,Sarchi,Alajuela,Atenas,Naranjo]
+Curridabat.limites = [MontesDeOca,SJ,Union,Desamparados]
+Tibas.limites = [SantoDomingo, SJ,Goicochea,Moravia]
+Liberia.limites = [Bagaces,LaCruz,Carrillo,Upala]
+Coronado.limites = [Heredia,SanIsidro,Moravia,Goicochea,Cartago,Oreamuno,Sarapiqui]
+Siquirres.limites = [Pococi,Matina,Guacimo,Turrialba]
+Moravia.limites = [SanIsidro,SantoDomingo,Tibas,Goicochea,Coronado]
+Escazu.limites = [Belen,SantaAna,Mora,Acosta,Alajuelita]
+SantaCruz.limites = [Carrillo,Bagaces,Nicoya]
+Nicoya.limites = [SantaCruz,Abangares,Hojancha,Nandayure]
+MontesDeOca.limites = [Goicochea,SJ,Curridabat,Union,Cartago]
+SantaAna.limites = [Alajuela,Belen,Mora,Escazu]
+SanRafael.limites = [Heredia,Barva,SanPablo,SanIsidro]
+Oreamuno.limites = [Pococi,Cartago,Paraiso,Coronado,Alvarado,Turrialba]
+BuenosAires.limites = [Talamanca,PZ,Osa,CotoBrus,Golfito]
+Upala.limites = [LosChiles,Guatuso,Canas,Bagaces,Liberia,LaCruz]
+Naranjo.limites = [Zarcero,Atenas,Sarchi,Grecia,SR,Palmares,RioCuarto]
 
 
 
-Moravia.color = (255,0,255,255)
-Moravia.imprimir()
+image.show()
