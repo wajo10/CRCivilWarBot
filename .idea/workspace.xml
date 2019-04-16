@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3de7cbb7-4f75-4583-a9f9-561b40bfb1d7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CostaRicaCivilWarBot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cantones3.png" beforeDir="false" afterPath="$PROJECT_DIR$/cantones3.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,8 +16,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1556">
-              <caret line="40" column="81" selection-start-line="40" selection-start-column="81" selection-end-line="40" selection-end-column="81" />
+            <state relative-caret-position="199">
+              <caret line="208" column="58" selection-start-line="208" selection-start-column="53" selection-end-line="208" selection-end-column="58" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -44,6 +42,26 @@
         <option value="Python Script" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>santo</find>
+      <find>santab</find>
+      <find>puris</find>
+      <find>Talam</find>
+      <find>Osa</find>
+      <find>flore</find>
+      <find>tarr</find>
+      <find>parri</find>
+      <find>sara</find>
+      <find>sarap</find>
+      <find>parai</find>
+      <find>coro</find>
+      <find>SanMA</find>
+      <find>espar</find>
+      <find>buenos</find>
+      <find>quepo</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -194,8 +212,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1556">
-          <caret line="40" column="81" selection-start-line="40" selection-start-column="81" selection-end-line="40" selection-end-column="81" />
+        <state relative-caret-position="199">
+          <caret line="208" column="58" selection-start-line="208" selection-start-column="53" selection-end-line="208" selection-end-column="58" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
