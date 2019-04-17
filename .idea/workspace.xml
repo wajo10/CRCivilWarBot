@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="3de7cbb7-4f75-4583-a9f9-561b40bfb1d7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instanciacion.py" beforeDir="false" afterPath="$PROJECT_DIR$/instanciacion.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pruebaImagen.py" beforeDir="false" afterPath="$PROJECT_DIR$/instanciacion.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restante.png" beforeDir="false" afterPath="$PROJECT_DIR$/restante.png" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,11 +17,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="158">
-              <caret line="132" column="59" lean-forward="true" selection-start-line="132" selection-start-column="59" selection-end-line="132" selection-end-column="59" />
+            <state relative-caret-position="233">
+              <caret line="344" selection-start-line="344" selection-end-line="345" selection-end-column="41" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -30,11 +29,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/instanciacion.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="972">
-              <caret line="126" column="38" selection-start-line="126" selection-start-column="38" selection-end-line="126" selection-end-column="38" />
+            <state relative-caret-position="210">
+              <caret line="14" column="23" lean-forward="true" selection-end-line="166" selection-end-column="12" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -53,10 +52,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>tarr</find>
-      <find>parri</find>
-      <find>sara</find>
-      <find>sarap</find>
       <find>parai</find>
       <find>coro</find>
       <find>SanMA</find>
@@ -69,7 +64,6 @@
       <find>turr</find>
       <find>turrub</find>
       <find>san p</find>
-      <find>isla</find>
       <find>sarch</find>
       <find>san ra</find>
       <find>san ca</find>
@@ -83,6 +77,11 @@
       <find>qued</find>
       <find>gol</find>
       <find>sali</find>
+      <find>here</find>
+      <find>perdedor.limi</find>
+      <find>perdedor.parteDe.contiene.remove(perdedor)</find>
+      <find>out</find>
+      <find>isla</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -92,8 +91,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/pruebaImagen.py" />
-        <option value="$PROJECT_DIR$/instanciacion.py" />
         <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/instanciacion.py" />
       </list>
     </option>
   </component>
@@ -109,6 +108,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -120,7 +120,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -140,7 +139,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python.pruebaImagen">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="CRCivilWarBot" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -185,8 +184,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.main" />
         <item itemvalue="Python.pruebaImagen" />
+        <item itemvalue="Python.main" />
       </list>
     </recent_temporary>
   </component>
@@ -201,6 +200,14 @@
       <option name="presentableId" value="Default" />
       <updated>1555260858944</updated>
     </task>
+    <task id="LOCAL-00001" summary="Mejoras leves">
+      <created>1555473746629</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1555473746629</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TodoView">
@@ -222,11 +229,11 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49925485" visible="true" weight="0.34876034" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4677686" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3289256" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.3289256" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.3289256" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5007452" side_tool="true" weight="0.3305785" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.3289256" />
@@ -234,6 +241,17 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Mejoras leves" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mejoras leves" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="perdedor" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
@@ -261,32 +279,32 @@
     </entry>
     <entry file="file:///usr/lib/python3.5/random.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="200" selection-start-line="200" selection-end-line="200" />
+        <state relative-caret-position="88">
+          <caret line="260" selection-start-line="260" selection-end-line="260" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/venv/lib/python3.5/site-packages/PIL/ImageDraw.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="403" selection-start-line="403" selection-end-line="403" />
+        <state relative-caret-position="157">
+          <caret line="422" selection-start-line="422" selection-end-line="422" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/instanciacion.py">
+    <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="972">
-          <caret line="126" column="38" selection-start-line="126" selection-start-column="38" selection-end-line="126" selection-end-column="38" />
+        <state relative-caret-position="233">
+          <caret line="344" selection-start-line="344" selection-end-line="345" selection-end-column="41" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
+    <entry file="file://$PROJECT_DIR$/instanciacion.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="132" column="59" lean-forward="true" selection-start-line="132" selection-start-column="59" selection-end-line="132" selection-end-column="59" />
+        <state relative-caret-position="210">
+          <caret line="14" column="23" lean-forward="true" selection-end-line="166" selection-end-column="12" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
