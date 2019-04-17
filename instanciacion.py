@@ -1,7 +1,10 @@
 from PIL import Image, ImageDraw
 from random import randint, choice
+import facebook
+import io
 global cantones, listaCantones, listaRestantes, image
-image = Image.open('provincias.png')
+graph = facebook.GraphAPI(access_token="EAAIbeSGZBSXABAJEv34by6lVs5EIoKBx8oLuKH36PAZCBVeJxLuGF29XhzzPqAvgbgWfcsHUvu51mjC9bKcmmYsBN8lm4YajM5GbfKYZACYh5gtwMZCvlpYvPBY28jwrJGyRivMKKDZBJ0NzfCZAmyxCe2ZCcyM33tw1n9nKeRe8QZDZD", version="2.12")
+image = Image.open('provincias.png',mode='r')
 cantones = 7
 listaCantones=[]
 listaRestantes=[]
@@ -131,6 +134,11 @@ def definicion(ganador,perdedor):
     ImageDraw.floodfill(image, perdedor.centro, ganador.color)
     if perdedor.nombre == 'Puntarenas, Puntarenas':
         ImageDraw.floodfill(image, (121, 141), ganador.color)
+    out = io.BytesIO()
+    image.save(out, format="PNG")
+    out = out.getvalue()
+    graph.put_photo(out,
+                    message="PRUEBA")
 #______________________________________________________________
 
 
