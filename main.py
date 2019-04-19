@@ -1,8 +1,10 @@
 from PIL import Image, ImageDraw
 from random import randint, choice
 import facebook
+import io
 global cantones, listaCantones, listaRestantes, image, perdedor
-graph = facebook.GraphAPI(access_token="EAAIbeSGZBSXABACQNM4lTHQQGZAdip7uZAL6e1Xrfp1tXms6IniL5KyMydDhHcISiCQrgMFzfer7ZCuU5G8PQvUD2JRnMKgYzT6ppGqTdLBdOpZBTI4QZCbnp1uvwjLpjgxlYgv9pcOtgYCHiGZAHAbl4ASHVARKFOcE6Sod4y4Xlg3OVMCspND5gNn57c9aiZBdZA77E5yWPMAZDZD", version="2.12")
+publish_time = 1555703443
+graph = facebook.GraphAPI(access_token="EAAIbeSGZBSXABAJEv34by6lVs5EIoKBx8oLuKH36PAZCBVeJxLuGF29XhzzPqAvgbgWfcsHUvu51mjC9bKcmmYsBN8lm4YajM5GbfKYZACYh5gtwMZCvlpYvPBY28jwrJGyRivMKKDZBJ0NzfCZAmyxCe2ZCcyM33tw1n9nKeRe8QZDZD", version="2.12")
 perdedor = None
 image = Image.open('cantones.png')
 cantones = 83
@@ -95,6 +97,7 @@ def atacar():
 
 def definicion(ganador,perdedor):
     global cantones, image, listaRestantes
+    mensaje = ''
     # Si el ganador esta conquistado, el ganador va a ser el dueno del ganador, siempre y cuando no sean del mismo territorio
     if ganador.conquistado:
         if ganador.parteDe != perdedor.parteDe and ganador != perdedor.parteDe:
@@ -127,16 +130,15 @@ def definicion(ganador,perdedor):
             break
     ganador.contiene.append(perdedor)
     perdedor.timesConquered += 1
-    pintar(ganador, perdedor)
 
     # Si el perdedor no estaba conquistado y no habia conquistado otros territorios
     if (not perdedor.conquistado) and len(perdedor.contiene) == 0:
         perdedor.conquistado = True
         perdedor.parteDe = ganador
         listaRestantes.remove(perdedor)
-        print(str(ganador.nombre) + " Ha conquistado " + str(perdedor.nombre) + "\n" +
-              perdedor.nombre + " ha sido eliminado. " + "Quedan: " + str(cantones))
         cantones -= 1
+        mensaje = (str(ganador.nombre) + " Ha conquistado " + str(perdedor.nombre) + "\n" +
+              perdedor.nombre + " ha sido eliminado. " + "Quedan: " + str(cantones))
     else:
         if (perdedor.parteDe != None):
             otro = perdedor.parteDe
@@ -148,15 +150,17 @@ def definicion(ganador,perdedor):
         # Si el perdedor es parte de otro canton se setean los nuevos atributos
             if (ganador.nombre == perdedor.parteDe.nombre):
                 print("ERRORRRRRRR")
-            print(str(ganador.nombre) + " ha conquistado el territorio de " + str(perdedor.nombre) +
+            mensaje = (str(ganador.nombre) + " ha conquistado el territorio de " + str(perdedor.nombre) +
                   " antes ocupado por " + perdedor.parteDe.nombre + "\n" + "restan: " + str(cantones))
             perdedor.parteDe = ganador
         else:
-            print(str(ganador.nombre) + " ha conquistado el territorio de " + str(perdedor.nombre))
+            mensaje = (str(ganador.nombre) + " ha conquistado el territorio de " + str(perdedor.nombre))
 
+    pintar(ganador, perdedor, mensaje)
+    print(mensaje)
 
-
-def pintar (ganador,perdedor):
+def pintar (ganador,perdedor,mensaje):
+    global publish_time
     ImageDraw.floodfill(image, perdedor.centro, ganador.color)
     if perdedor.nombre == 'Heredia, Heredia':
         ImageDraw.floodfill(image, (412, 242), ganador.color)
@@ -165,7 +169,12 @@ def pintar (ganador,perdedor):
         ImageDraw.floodfill(image, (179, 310), ganador.color)
     elif perdedor.nombre == "Golfito, Puntarenas":
         ImageDraw.floodfill(image, (556, 609), ganador.color)
-
+    out = io.BytesIO()
+    image.save(out, format="PNG")
+    out = out.getvalue()
+    publish_time += 3600
+    graph.put_photo(out, published=False,
+                    message=mensaje, scheduled_publish_time=publish_time)
 # ___________INSTANCIACION DE CADA CANTON_________________________________________
 SJ = canton(False, 44.62, 288054, [], "San José, San José", (400, 289))
 Alajuela = canton(False, 388.43, 254886, [], "Alajuela, Alajuela", (376, 268))
@@ -338,9 +347,5 @@ SanMateo.limites = [SR, Atenas, Esparza, Orotina, Puntarenas]
 Turrubares.limites = [Atenas, Orotina, Garabito, Parrita, Puriscal, Mora]
 IslaCoco.limites = [Puntarenas, Esparza, Osa, BuenosAires, Quepos]
 
-#atacar()
+atacar()
 
-image.show()
-image.save("restantes.png")
-graph.put_photo(image=open("restantes.png", 'rb'),
-                message='Primera Prueba')

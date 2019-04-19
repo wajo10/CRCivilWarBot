@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3de7cbb7-4f75-4583-a9f9-561b40bfb1d7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,8 +18,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="445">
-              <caret line="345" column="41" lean-forward="true" selection-start-line="345" selection-start-column="41" selection-end-line="345" selection-end-column="41" />
+            <state relative-caret-position="165">
+              <caret line="159" column="17" selection-start-line="159" selection-start-column="17" selection-end-line="159" selection-end-column="17" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -31,7 +30,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/instanciacion.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
+            <state relative-caret-position="-1731">
               <caret line="5" column="218" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="218" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
@@ -138,7 +137,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.pruebaImagen">
+  <component name="RunManager" selected="Python.main">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="CRCivilWarBot" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -183,8 +182,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.pruebaImagen" />
         <item itemvalue="Python.main" />
+        <item itemvalue="Python.pruebaImagen" />
       </list>
     </recent_temporary>
   </component>
@@ -227,7 +226,7 @@
       <window_info id="Favorites" order="2" sideWeight="0.5025381" side_tool="true" weight="0.24962743" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49925485" weight="0.34876034" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49925485" visible="true" weight="0.34876034" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4677686" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -290,20 +289,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
+    <entry file="file://$PROJECT_DIR$/instanciacion.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="345" column="41" lean-forward="true" selection-start-line="345" selection-start-column="41" selection-end-line="345" selection-end-column="41" />
+        <state relative-caret-position="-1731">
+          <caret line="5" column="218" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="218" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/instanciacion.py">
+    <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="5" column="218" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="218" />
+        <state relative-caret-position="165">
+          <caret line="159" column="17" selection-start-line="159" selection-start-column="17" selection-end-line="159" selection-end-column="17" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
