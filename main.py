@@ -2,7 +2,7 @@ from PIL import Image, ImageDraw
 from random import randint, choice
 import facebook
 global cantones, listaCantones, listaRestantes, image, perdedor
-graph = facebook.GraphAPI(access_token="EAAIbeSGZBSXABAJEv34by6lVs5EIoKBx8oLuKH36PAZCBVeJxLuGF29XhzzPqAvgbgWfcsHUvu51mjC9bKcmmYsBN8lm4YajM5GbfKYZACYh5gtwMZCvlpYvPBY28jwrJGyRivMKKDZBJ0NzfCZAmyxCe2ZCcyM33tw1n9nKeRe8QZDZD", version="2.12")
+graph = facebook.GraphAPI(access_token="EAAIbeSGZBSXABACQNM4lTHQQGZAdip7uZAL6e1Xrfp1tXms6IniL5KyMydDhHcISiCQrgMFzfer7ZCuU5G8PQvUD2JRnMKgYzT6ppGqTdLBdOpZBTI4QZCbnp1uvwjLpjgxlYgv9pcOtgYCHiGZAHAbl4ASHVARKFOcE6Sod4y4Xlg3OVMCspND5gNn57c9aiZBdZA77E5yWPMAZDZD", version="2.12")
 perdedor = None
 image = Image.open('cantones.png')
 cantones = 83
