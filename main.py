@@ -96,16 +96,19 @@ def atacar():
         print("Gano el canton: " + str(listaRestantes[0].nombre))
 
 def definicion(ganador,perdedor):
-    global cantones, image, listaRestantes
+    global cantones, image, listaRestantes, mensaje
     mensaje = ''
+    perdioTodos = False
     # Si el ganador esta conquistado, el ganador va a ser el dueno del ganador, siempre y cuando no sean del mismo territorio
     if ganador.conquistado:
         if ganador.parteDe != perdedor.parteDe and ganador != perdedor.parteDe:
             ganador = ganador.parteDe
         else:
             return
-    if ganador == perdedor.parteDe or ganador.parteDe == perdedor or ganador.parteDe == perdedor.parteDe and ganador.parteDe is not None:
+    if ganador.nombre == perdedor.nombre or ganador == perdedor.parteDe or ganador.parteDe == perdedor or ganador.parteDe == perdedor.parteDe and ganador.parteDe is not None:
         #print("SALIR")
+        return
+    if perdedor in ganador.contiene:
         return
     # Se agregan los limites del perdedor y se intenta eliminar el mismo
     ganador.limitesConquistas.extend(perdedor.limites)
@@ -123,6 +126,14 @@ def definicion(ganador,perdedor):
             x.contiene.remove(perdedor)
             x.poblacionConquistado -= perdedor.poblacion
             x.tamanoConquistado -= perdedor.tamano
+            if x.contiene == [] and x != ganador:
+                perdioTodos = True
+                listaRestantes.remove(x)
+                cantones -= 1
+                x.conquistado = True
+                x.parteDe = ganador
+                mensaje = (ganador.nombre + " ha conquistado el territorio de " + perdedor.nombre + ". Donde estaba ubicado " + x.nombre + "\n"
+                           + x.nombre + " ha sido eliminado. ""Quedan: " + str(cantones))
             for y in perdedor.limitesConquistas:
                 if y in x.limitesConquistas:
                     x.limitesConquistas.remove(y)
@@ -132,7 +143,7 @@ def definicion(ganador,perdedor):
     perdedor.timesConquered += 1
 
     # Si el perdedor no estaba conquistado y no habia conquistado otros territorios
-    if (not perdedor.conquistado) and len(perdedor.contiene) == 0:
+    if (not perdedor.conquistado) and len(perdedor.contiene) == 0 and not perdioTodos:
         perdedor.conquistado = True
         perdedor.parteDe = ganador
         listaRestantes.remove(perdedor)
@@ -140,7 +151,7 @@ def definicion(ganador,perdedor):
         mensaje = (str(ganador.nombre) + " Ha conquistado " + str(perdedor.nombre) + "\n" +
               perdedor.nombre + " ha sido eliminado. " + "Quedan: " + str(cantones))
     else:
-        if (perdedor.parteDe != None):
+        if (perdedor.parteDe != None and not perdioTodos):
             otro = perdedor.parteDe
             otro.tamanoConquistado -= perdedor.tamano
             otro.poblacionConquistado -= perdedor.poblacion
@@ -148,13 +159,15 @@ def definicion(ganador,perdedor):
                 if x in otro.limitesConquistas:
                     otro.limitesConquistas.remove(x)
         # Si el perdedor es parte de otro canton se setean los nuevos atributos
-            if (ganador.nombre == perdedor.parteDe.nombre):
+            if (ganador.nombre == perdedor.parteDe.nombre and not perdioTodos):
                 print("ERRORRRRRRR")
             mensaje = (str(ganador.nombre) + " ha conquistado el territorio de " + str(perdedor.nombre) +
                   " antes ocupado por " + perdedor.parteDe.nombre + "\n" + "restan: " + str(cantones))
             perdedor.parteDe = ganador
         else:
-            mensaje = (str(ganador.nombre) + " ha conquistado el territorio de " + str(perdedor.nombre))
+            if not perdioTodos:
+                mensaje = (str(ganador.nombre) + " ha conquistado el territorio de " + str(perdedor.nombre))
+
 
     pintar(ganador, perdedor, mensaje)
     print(mensaje)
