@@ -3,7 +3,7 @@ from random import randint, choice
 import facebook
 import io
 global cantones, listaCantones, listaRestantes, image, perdedor
-publish_time = 1555703443
+publish_time = 1555765200
 graph = facebook.GraphAPI(access_token="EAAIbeSGZBSXABAJEv34by6lVs5EIoKBx8oLuKH36PAZCBVeJxLuGF29XhzzPqAvgbgWfcsHUvu51mjC9bKcmmYsBN8lm4YajM5GbfKYZACYh5gtwMZCvlpYvPBY28jwrJGyRivMKKDZBJ0NzfCZAmyxCe2ZCcyM33tw1n9nKeRe8QZDZD", version="2.12")
 perdedor = None
 image = Image.open('cantones.png')
@@ -60,7 +60,7 @@ def atacar():
     global cantones, perdedor
     flag = True
     while(cantones > 1):
-        if cantones > 8:
+        if cantones > 10:
             canton1 = choice(listaRestantes)
             if canton1.limitesConquistas == []:
                 canton1.limitesConquistas.extend(canton1.limites)
@@ -72,6 +72,8 @@ def atacar():
                 flag = False
             else:
                 canton2 = choice(listaCantones)
+                while canton2 in canton.contiene:
+                    canton2 = choice(listaCantones)
 
         x = canton1.poblacionConquistado + canton1.tamanoConquistado + canton2.poblacionConquistado + canton2.tamanoConquistado
 
@@ -89,11 +91,12 @@ def atacar():
                 definicion(canton2, canton1)
         else:
             if resultante > posCanton1:
-                definicion(canton1, canton2)
+                definicion(canton2, canton1)
             else:
                 definicion(canton1, canton2)
     else:
-        print("Gano el canton: " + str(listaRestantes[0].nombre))
+        print("Ganó el canton de: " + str(listaRestantes[0].nombre)+". Felicidades, controla todo Costa Rica" + "\n"
+              + "#TodosSomos" + listaRestantes[0].nombre)
 
 def definicion(ganador,perdedor):
     global cantones, image, listaRestantes, mensaje
@@ -105,10 +108,10 @@ def definicion(ganador,perdedor):
             ganador = ganador.parteDe
         else:
             return
-    if ganador.nombre == perdedor.nombre or ganador == perdedor.parteDe or ganador.parteDe == perdedor or ganador.parteDe == perdedor.parteDe and ganador.parteDe is not None:
-        #print("SALIR")
+    if (cantones>3)and(ganador.nombre == perdedor.nombre or ganador == perdedor.parteDe or ganador.parteDe == perdedor or ganador.parteDe == perdedor.parteDe and ganador.parteDe is not None):
+        print("SALIR")
         return
-    if perdedor in ganador.contiene:
+    if perdedor in ganador.contiene and cantones >3:
         return
     # Se agregan los limites del perdedor y se intenta eliminar el mismo
     ganador.limitesConquistas.extend(perdedor.limites)
@@ -122,18 +125,18 @@ def definicion(ganador,perdedor):
 
     # Si otro canton era dueno del perdedor se le quita y pasa al ganador
     for x in listaRestantes:
-        if perdedor in x.contiene:
+        if perdedor in x.contiene and x != ganador:
             x.contiene.remove(perdedor)
             x.poblacionConquistado -= perdedor.poblacion
             x.tamanoConquistado -= perdedor.tamano
-            if x.contiene == [] and x != ganador:
+            if x.contiene == []:
                 perdioTodos = True
                 listaRestantes.remove(x)
                 cantones -= 1
                 x.conquistado = True
                 x.parteDe = ganador
                 mensaje = (ganador.nombre + " ha conquistado el territorio de " + perdedor.nombre + ". Donde estaba ubicado " + x.nombre + "\n"
-                           + x.nombre + " ha sido eliminado. ""Quedan: " + str(cantones))
+                           + x.nombre + " ha sido definitivamente eliminado. ""Cantones restantes: " + str(cantones))
             for y in perdedor.limitesConquistas:
                 if y in x.limitesConquistas:
                     x.limitesConquistas.remove(y)
@@ -149,7 +152,7 @@ def definicion(ganador,perdedor):
         listaRestantes.remove(perdedor)
         cantones -= 1
         mensaje = (str(ganador.nombre) + " Ha conquistado " + str(perdedor.nombre) + "\n" +
-              perdedor.nombre + " ha sido eliminado. " + "Quedan: " + str(cantones))
+              perdedor.nombre + " ha sido definitivamente eliminado. " + "Cantones restantes: " + str(cantones))
     else:
         if (perdedor.parteDe != None and not perdioTodos):
             otro = perdedor.parteDe
@@ -159,17 +162,26 @@ def definicion(ganador,perdedor):
                 if x in otro.limitesConquistas:
                     otro.limitesConquistas.remove(x)
         # Si el perdedor es parte de otro canton se setean los nuevos atributos
-            if (ganador.nombre == perdedor.parteDe.nombre and not perdioTodos):
+            if (ganador.nombre == perdedor.parteDe.nombre and not perdioTodos) or ganador.nombre == perdedor.nombre:
                 print("ERRORRRRRRR")
+                return
             mensaje = (str(ganador.nombre) + " ha conquistado el territorio de " + str(perdedor.nombre) +
-                  " antes ocupado por " + perdedor.parteDe.nombre + "\n" + "restan: " + str(cantones))
+                  " antes ocupado por " + perdedor.parteDe.nombre + "\n" + str(cantones) + " cantones restantes")
             perdedor.parteDe = ganador
         else:
             if not perdioTodos:
-                mensaje = (str(ganador.nombre) + " ha conquistado el territorio de " + str(perdedor.nombre))
+                mensaje = (str(ganador.nombre) + " ha conquistado el territorio de " + str(perdedor.nombre) +"\n"
+                           + str(cantones) + " cantones restantes" )
+                if cantones <= 3 and perdedor.contiene == []:
+                    perdedor.parteDe = None
+                    mensaje = (str(ganador.nombre) + " ha conquistado el territorio de " + str(perdedor.nombre) + "\n"
+                               + str(cantones) + " cantones restantes")
 
-
-    pintar(ganador, perdedor, mensaje)
+    if cantones <42:
+        mensaje += "\n" + "CANTONES CON VIDA: " + "\n"
+        for x in listaRestantes:
+            mensaje += x.nombre + "\n"
+    #pintar(ganador, perdedor, mensaje)
     print(mensaje)
 
 def pintar (ganador,perdedor,mensaje):
@@ -185,9 +197,10 @@ def pintar (ganador,perdedor,mensaje):
     out = io.BytesIO()
     image.save(out, format="PNG")
     out = out.getvalue()
-    publish_time += 3600
     graph.put_photo(out, published=False,
                     message=mensaje, scheduled_publish_time=publish_time)
+    publish_time += 3600
+
 # ___________INSTANCIACION DE CADA CANTON_________________________________________
 SJ = canton(False, 44.62, 288054, [], "San José, San José", (400, 289))
 Alajuela = canton(False, 388.43, 254886, [], "Alajuela, Alajuela", (376, 268))
@@ -199,12 +212,12 @@ Pococi = canton(False, 2403.49, 125962, [], "Pococi, Limón", (495, 170))
 Heredia = canton(False, 282.60, 123616, [], "Heredia, Heredia", (394, 276))
 Puntarenas = canton(False, 1842.33, 115019, [], "Puntarenas, Puntarenas", (234, 256))
 Goicochea = canton(False, 31.50, 115084, [], "Goicochea, San José", (419, 283))
-Union = canton(False, 44.83, 99399, [], "La Union, Cartago", (428, 293))
+Union = canton(False, 44.83, 99399, [], "La Unión, Cartago", (428, 293))
 Limon = canton(False, 1765.79, 94415, [], "Limón, Limón", (626, 327))
-SR = canton(False, 1018.64, 805660, [], "San Ramón, Alajuela", (296, 228))
+SR = canton(False, 1018.64, 8056600, [], "San Ramón, Alajuela", (296, 228))
 Alajuelita = canton(False, 21.17, 77603, [], "Alajuelita, San José", (400, 298))
 Turrialba = canton(False, 1642.67, 35201, [], "Turrialba, Cartago", (528, 298))
-Grecia = canton(False, 141.52, 65824, [], 'Grecia', (358, 256))
+Grecia = canton(False, 141.52, 65824, [], 'Grecia, Alajuela', (358, 256))
 Curridabat = canton(False, 15.95, 65206, [], "Curridabat, San José", (419, 292))
 Tibas = canton(False, 8.15, 64842, [], "Tibás, San José", (405, 283))
 Liberia = canton(False, 1436.47, 62987, [], "Liberia, Guanacaste", (100, 119))
@@ -271,7 +284,7 @@ Hojancha = canton(False, 261.42, 7197, [], "Hojancha, Guanacaste", (112, 284))
 Dota = canton(False, 400.22, 6948, [], "Dota, San José", (446, 365))
 SanMateo = canton(False, 125.90, 6136, [], "San Mateo, Alajuela", (304, 283))
 Turrubares = canton(False, 415.29, 5512, [], "Turrubares, San José", (314, 315))
-IslaCoco = canton(False, 23.85, 20000, [], "Isla del Coco, Puntarenas", (103, 598))
+IslaCoco = canton(False, 23.85, 2000000, [], "Isla del Coco, Puntarenas", (103, 598))
 
 # ________________LIMITES DE CADA CANTON_______________________________________________________________________
 SJ.limites = [Belen, Heredia, SantoDomingo, Tibas, Goicochea, MontesDeOca, Curridabat, Desamparados, Alajuelita,
@@ -360,5 +373,15 @@ SanMateo.limites = [SR, Atenas, Esparza, Orotina, Puntarenas]
 Turrubares.limites = [Atenas, Orotina, Garabito, Parrita, Puriscal, Mora]
 IslaCoco.limites = [Puntarenas, Esparza, Osa, BuenosAires, Quepos]
 
+out = io.BytesIO()
+image.save(out, format="PNG")
+out = out.getvalue()
+# graph.put_photo(out, published=False,
+#                 message="Inicio de la Guerra, cada hora un cantón conquistará otro hasta que solo prevalezca uno."+"\n"+
+#                         "Cabe recalcar que es una versión beta y puede contener errores, cada vez se irá mejorando" +'\n'+
+#                         " Cantones restantes: 83", scheduled_publish_time=publish_time)
+# publish_time = 1555786800
+
 atacar()
+image.show()
 

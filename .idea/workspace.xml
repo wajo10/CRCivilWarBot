@@ -18,11 +18,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="111">
-              <caret line="171" column="4" lean-forward="true" selection-start-line="171" selection-start-column="4" selection-end-line="171" selection-end-column="4" />
+            <state relative-caret-position="2528">
+              <caret line="216" column="35" selection-start-line="216" selection-start-column="35" selection-end-line="216" selection-end-column="35" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file:///usr/lib/python3.5/random.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="88">
+              <caret line="226" selection-start-line="226" selection-end-line="226" />
             </state>
           </provider>
         </entry>
@@ -50,21 +59,13 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>coro</find>
-      <find>SanMA</find>
-      <find>espar</find>
-      <find>buenos</find>
-      <find>quepo</find>
-      <find>appe</find>
       <find>rem</find>
-      <find>san r</find>
       <find>turr</find>
       <find>turrub</find>
       <find>san p</find>
       <find>sarch</find>
       <find>san ra</find>
       <find>san ca</find>
-      <find>san ram</find>
       <find>elim</find>
       <find>elimi</find>
       <find>elimin</find>
@@ -80,6 +81,14 @@
       <find>out</find>
       <find>isla</find>
       <find>.contiene</find>
+      <find>erro</find>
+      <find>err</find>
+      <find>chiles</find>
+      <find>unio</find>
+      <find>uni</find>
+      <find>san r</find>
+      <find>san ram</find>
+      <find>sr</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -275,13 +284,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/lib/python3.5/random.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="260" selection-start-line="260" selection-end-line="260" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/venv/lib/python3.5/site-packages/PIL/ImageDraw.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="157">
@@ -299,10 +301,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file:///usr/lib/python3.5/random.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="226" selection-start-line="226" selection-end-line="226" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="171" column="4" lean-forward="true" selection-start-line="171" selection-start-column="4" selection-end-line="171" selection-end-column="4" />
+        <state relative-caret-position="2528">
+          <caret line="216" column="35" selection-start-line="216" selection-start-column="35" selection-end-line="216" selection-end-column="35" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
